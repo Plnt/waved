@@ -1,6 +1,17 @@
 Web Application Version Detection
 =================================
 
+Web Application Version Detection (waved) is tool designed for web application
+version detection.
+
+Use
+---
+$ ./waved.py -a roundcube http://roundcube.somewhere.com/
+0.5.3 100%
+0.5.2 60%
+0.5.1 50%
+0.5 30%
+
 Supported applications
 ----------------------
 * phpBB2
@@ -22,3 +33,4 @@ Install
 
 Credits
 -------
+* Jan Krupa
