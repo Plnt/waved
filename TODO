@@ -1,0 +1,41 @@
+TODO
+====
+
+Features
+--------
+* More inteligent files downloading from the remote site
+* Change user agent, make user agent configurable option
+* Publish scripts for automated fingerprint generation
+* Publish scripts for automated applications download
+
+Support applications
+--------------------
+* AtMail
+* AWStats
+* BLOG:CMS
+* Bugzilla
+* DIASPORA*
+* DokuWiki
+* Drupal
+* Gallery
+* Gitweb
+* HgWebDir
+* Horde
+* Joomla!
+* MediaWiki
+* Moodle
+* Nucleus CMS
+* PHP-Nuke
+* phpMyAdmin
+* phpPgAdmin
+* Piwik
+* Pligg
+* PunBB
+* Redmine
+* SquirrelMail
+* StatusNet
+* SugarCRM
+* Trac
+* vBulletin
+* YaCy
+* Zimbra
