@@ -59,6 +59,9 @@ parser.add_option("-v", "--verbose",
 parser.add_option("-a", "--application",
         dest="application", action="store",
         help="web application (i.e. roundcube, phpbb2, phpbb3, ..)")
+parser.add_option("-c", "--url-count",
+	action="store", dest="url_count", default="10",
+	help="amount of requests to send")
 
 (options, args) = parser.parse_args()
 
@@ -73,8 +76,7 @@ if options.application == None:
 
 app_name = options.application
 url_finger = args[0]
-
-url_count = 10
+url_count = int(options.url_count)
 
 # Load hashes for all versions of selected web application
 dirlist = os.listdir("def/%s" % (app_name))
@@ -111,7 +113,7 @@ while (url_count_tmp > 0):
 					ver_breakdown[ver_act] = 1
 		url_count_tmp -= 1
 
-	fhashes_diff_index +=  1
+	fhashes_diff_index += 1
 
 # Sort versions breakdown
 ver_breakdown_sorted = sorted(ver_breakdown.iteritems(), key=operator.itemgetter(1), reverse = True)
