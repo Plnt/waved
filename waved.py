@@ -92,26 +92,26 @@ ver_breakdown = {}
 
 url_count_tmp = url_count
 
-i = 0
+fhashes_diff_index = 0
 while (url_count_tmp > 0):
-	#print fhashes_diff[i]
-	f = urllib.urlopen("%s%s" % (url_finger, fhashes_diff[i][0]))
+	#print fhashes_diff[fhashes_diff_index]
+	f = urllib.urlopen("%s%s" % (url_finger, fhashes_diff[fhashes_diff_index][0]))
 	if options.verbose:
-		print("%i %s" % (f.getcode(), fhashes_diff[i]))
+		print("%i %s" % (f.getcode(), fhashes_diff[fhashes_diff_index]))
 	if f.getcode() == 200:
 		s = f.read()
 		s_md5 = md5.new(s).hexdigest()
-		for ver_act in fhashes[fhashes_diff[i][0]]:
-			if (s_md5 == fhashes[fhashes_diff[i][0]][ver_act]):
+		for ver_act in fhashes[fhashes_diff[fhashes_diff_index][0]]:
+			if (s_md5 == fhashes[fhashes_diff[fhashes_diff_index][0]][ver_act]):
 				if options.verbose:
 					print ver_act
 				if ver_act in ver_breakdown:
 					ver_breakdown[ver_act] += 1
 				else:
 					ver_breakdown[ver_act] = 1
-		url_count_tmp = url_count_tmp - 1
+		url_count_tmp -= 1
 
-	i = i + 1
+	fhashes_diff_index +=  1
 
 # Sort versions breakdown
 ver_breakdown_sorted = sorted(ver_breakdown.iteritems(), key=operator.itemgetter(1), reverse = True)
