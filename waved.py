@@ -16,7 +16,7 @@ def load_hashes(file_in, file_version):
 
 	global fhashes
 
-	f = open("def/" + file_in + "/" + file_in + "-" + file_version)
+	f = open("def/%s/%s-%s" % (file_in, file_in,file_version))
 	while 1:
 		line = f.readline().strip()
 		if not line:
@@ -77,7 +77,7 @@ url_finger = args[0]
 url_count = 10
 
 # Load hashes for all versions of selected web application
-dirlist = os.listdir("def/" + app_name)
+dirlist = os.listdir("def/%s" % (app_name))
 for file_act in dirlist:
 	app_version = file_act.split("-", 1)[1]
 	load_hashes(app_name, app_version)
@@ -95,7 +95,7 @@ url_count_tmp = url_count
 i = 0
 while (url_count_tmp > 0):
 	#print fhashes_diff[i]
-	f = urllib.urlopen(url_finger + fhashes_diff[i][0])
+	f = urllib.urlopen("%s%s" % (url_finger, fhashes_diff[i][0]))
 	if options.verbose:
 		print("%i %s" % (f.getcode(), fhashes_diff[i]))
 	if f.getcode() == 200:
