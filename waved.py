@@ -26,9 +26,9 @@ def load_hashes(file_in, file_version):
 		if (lines[0] == "1"):
 			if (lines[1] in fhashes):
 				#print lines[0] + " " + file_version + " " + lines[1]
-				fhashes[lines[1]][file_version] = lines[2]
+				fhashes[lines[1]][file_version] = lines[3]
 			else:
-				fhashes[lines[1]] = {file_version: lines[2]}
+				fhashes[lines[1]] = {file_version: lines[3]}
 
 	f.close()
 
