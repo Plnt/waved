@@ -4,7 +4,7 @@ import operator
 import sys
 import os
 import urllib
-import md5
+import hashlib
 import optparse
 
 #import pprint
@@ -102,7 +102,7 @@ while (url_count_tmp > 0):
 		print("%i %s" % (f.getcode(), fhashes_diff[fhashes_diff_index]))
 	if f.getcode() == 200:
 		s = f.read()
-		s_md5 = md5.new(s).hexdigest()
+		s_md5 = hashlib.md5(s).hexdigest()
 		for ver_act in fhashes[fhashes_diff[fhashes_diff_index][0]]:
 			if (s_md5 == fhashes[fhashes_diff[fhashes_diff_index][0]][ver_act]):
 				if options.verbose:
